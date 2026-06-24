@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nidhi Hongal | Executive Assistant</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1a1f3c;
+    --navy-mid: #2d3561;
+    --accent: #c9a96e;
+    --accent-light: #f0e6d0;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --text: #1a1f3c;
+    --text-mid: #4a5068;
+    --text-light: #8a90a8;
+    --border: rgba(26,31,60,0.1);
+  }
+  body { font-family: 'Georgia', serif; background: var(--cream); color: var(--text); line-height: 1.7; }
+  nav { background: var(--navy); padding: 1.2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+  .nav-brand { font-family: 'Georgia', serif; font-size: 1rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; font-style: italic; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-family: Arial, sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .hero { background: var(--navy); padding: 5rem 2.5rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+  .hero-eyebrow { font-family: Arial, sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+  .hero h1 { font-size: 3.2rem; color: var(--white); line-height: 1.15; font-weight: normal; margin-bottom: 0.5rem; }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero-sub { font-family: Arial, sans-serif; font-size: 0.92rem; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; margin-bottom: 2rem; }
+  .hero-desc { font-family: Arial, sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 2.5rem; }
+  .hero-cta { display: inline-block; background: var(--accent); color: var(--navy); padding: 0.85rem 2rem; font-family: Arial, sans-serif; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; font-weight: bold; transition: background 0.2s; cursor: pointer; border: none; }
+  .hero-cta:hover { background: #e0bc84; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-card { background: rgba(255,255,255,0.06); border: 0.5px solid rgba(201,169,110,0.3); padding: 1.5rem; }
+  .stat-num { font-size: 2.4rem; color: var(--accent); line-height: 1; margin-bottom: 0.4rem; }
+  .stat-label { font-family: Arial, sans-serif; font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; line-height: 1.4; }
+  .stat-card-wide { grid-column: 1 / -1; background: rgba(201,169,110,0.1); border: 0.5px solid rgba(201,169,110,0.4); padding: 1.2rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .avail-dot { width: 8px; height: 8px; background: #6fcf97; border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .avail-text { font-family: Arial, sans-serif; font-size: 0.82rem; color: rgba(255,255,255,0.8); }
+  .section { max-width: 1100px; margin: 0 auto; padding: 4.5rem 2.5rem; }
+  .section-eyebrow { font-family: Arial, sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .section-title { font-size: 2rem; font-weight: normal; color: var(--navy); margin-bottom: 2.5rem; line-height: 1.3; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .service-card { background: var(--white); border: 0.5px solid var(--border); padding: 2rem 1.75rem; transition: border-color 0.2s; }
+  .service-card:hover { border-color: var(--accent); }
+  .service-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+  .service-title { font-size: 1rem; color: var(--navy); margin-bottom: 0.75rem; font-weight: normal; }
+  .service-desc { font-family: Arial, sans-serif; font-size: 0.84rem; color: var(--text-mid); line-height: 1.7; }
+  .service-items { margin-top: 1rem; list-style: none; }
+  .service-items li { font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--text-light); padding: 0.25rem 0; border-bottom: 0.5px solid var(--border); }
+  .service-items li:last-child { border: none; }
+  .service-items li::before { content: "→ "; color: var(--accent); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; padding-left: 1.5rem; }
+  .timeline-dot { position: absolute; left: -2.4rem; top: 0.4rem; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+  .timeline-date { font-family: Arial, sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
+  .timeline-role { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.2rem; }
+  .timeline-org { font-family: Arial, sans-serif; font-size: 0.84rem; color: var(--text-mid); margin-bottom: 0.6rem; }
+  .timeline-desc { font-family: Arial, sans-serif; font-size: 0.84rem; color: var(--text-mid); line-height: 1.7; }
+  .tools-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .tool-pill { background: var(--white); border: 0.5px solid var(--border); padding: 0.5rem 1.1rem; font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--text-mid); letter-spacing: 0.03em; }
+  .lang-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
+  .lang-name { font-family: Arial, sans-serif; font-size: 0.85rem; color: var(--text); width: 80px; flex-shrink: 0; }
+  .lang-bar-bg { flex: 1; height: 3px; background: var(--border); max-width: 200px; }
+  .lang-bar { height: 100%; background: var(--accent); }
+  .lang-level { font-family: Arial, sans-serif; font-size: 0.75rem; color: var(--text-light); }
+  .contact-section { background: var(--navy); padding: 4.5rem 2.5rem; }
+  .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+  .contact-left h2 { font-size: 2rem; font-weight: normal; color: var(--white); margin-bottom: 1rem; line-height: 1.3; }
+  .contact-left h2 em { color: var(--accent); font-style: italic; }
+  .contact-left p { font-family: Arial, sans-serif; font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 2rem; }
+  .contact-info-item { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; font-family: Arial, sans-serif; font-size: 0.84rem; color: rgba(255,255,255,0.7); }
+  .contact-info-item span:first-child { color: var(--accent); font-size: 1rem; }
+  .contact-form { background: rgba(255,255,255,0.05); border: 0.5px solid rgba(201,169,110,0.25); padding: 2.5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-family: Arial, sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.15); color: var(--white); padding: 0.75rem 1rem; font-family: Arial, sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+  .form-group select option { background: var(--navy); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .submit-btn { width: 100%; background: var(--accent); color: var(--navy); border: none; padding: 1rem; font-family: Arial, sans-serif; font-size: 0.82rem; font-weight: bold; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+  .submit-btn:hover { background: #e0bc84; }
+  .success-msg { display: none; background: rgba(111,207,151,0.1); border: 0.5px solid rgba(111,207,151,0.4); padding: 1.5rem; text-align: center; font-family: Arial, sans-serif; font-size: 0.9rem; color: #6fcf97; margin-top: 1rem; }
+  .divider { border: none; border-top: 0.5px solid var(--border); max-width: 1100px; margin: 0 auto; }
+  footer { background: var(--navy); border-top: 0.5px solid rgba(201,169,110,0.2); padding: 1.5rem 2.5rem; text-align: center; font-family: Arial, sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; }
+  .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: start; }
+  .side-block h3 { font-size: 1.1rem; font-weight: normal; color: var(--navy); margin-bottom: 1.2rem; padding-bottom: 0.75rem; border-bottom: 0.5px solid var(--border); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Nidhi Hongal</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Work with me</a></li>
+  </ul>
+</nav>
+
+<div style="background: var(--navy);">
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">Executive &amp; Virtual Assistant — Remote, Worldwide</p>
+      <h1>Your right hand,<br><em>behind the scenes.</em></h1>
+      <p class="hero-sub">EA · PA · VA &nbsp;|&nbsp; Gandhinagar, India</p>
+      <p class="hero-desc">I help founders, directors, and senior professionals reclaim their time — managing the complexity of calendars, communications, and operations so they can focus on what only they can do.</p>
+      <a class="hero-cta" href="#contact">Request my services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years of EA &amp; PA experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Clients &amp; organisations supported</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Languages: English, Hindi, Gujarati</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Remote-ready, any time zone</div>
+      </div>
+      <div class="stat-card-wide">
+        <div class="avail-dot"></div>
+        <div class="avail-text">Currently open to new full-time remote opportunities</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="services" class="section">
+  <p class="section-eyebrow">What I do</p>
+  <h2 class="section-title">Services I offer</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🗓</div>
+      <h3 class="service-title">Executive Assistant</h3>
+      <p class="service-desc">End-to-end support for founders and executives — from inbox to board room.</p>
+      <ul class="service-items">
+        <li>Calendar &amp; meeting management</li>
+        <li>Email triage &amp; drafting</li>
+        <li>Cross-team coordination</li>
+        <li>Leadership communications</li>
+        <li>Travel &amp; itinerary planning</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <h3 class="service-title">Personal Assistant</h3>
+      <p class="service-desc">Discreet, reliable support for personal and professional life, seamlessly blended.</p>
+      <ul class="service-items">
+        <li>Personal scheduling &amp; reminders</li>
+        <li>Vendor &amp; stakeholder liaison</li>
+        <li>Research &amp; decision support</li>
+        <li>Document &amp; presentation prep</li>
+        <li>Confidential information handling</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <h3 class="service-title">Virtual Assistant</h3>
+      <p class="service-desc">Remote operations support — CRM, business development, reporting, and more.</p>
+      <ul class="service-items">
+        <li>CRM management &amp; follow-ups</li>
+        <li>Business development support</li>
+        <li>Lead coordination &amp; outreach</li>
+        <li>SOP &amp; report creation</li>
+        <li>Project &amp; task management</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div id="experience" class="section">
+  <div class="two-col">
+    <div>
+      <p class="section-eyebrow">Background</p>
+      <h2 class="section-title" style="margin-bottom: 2rem;">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">Jun 2025 – Present</p>
+          <p class="timeline-role">Executive Assistant, Founder's Office</p>
+          <p class="timeline-org">GTM Labs</p>
+          <p class="timeline-desc">Comprehensive EA support to the founding team — calendar management, stakeholder coordination, marketing operations, and team leadership across content and social media.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">Nov 2025 – Present</p>
+          <p class="timeline-role">Office Coordinator &amp; Personal Assistant</p>
+          <p class="timeline-org">Intellectual Capital HR Consulting</p>
+          <p class="timeline-desc">Direct support to the Director across operations, business development, talent outreach, and client communication. Managing LinkedIn Recruiter and high-volume correspondence.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">Dec 2023 – Feb 2025</p>
+          <p class="timeline-role">Personal Assistant</p>
+          <p class="timeline-org">Government Science College, Gandhinagar</p>
+          <p class="timeline-desc">Led NAAC registration preparation — compliance documentation, faculty profiles, inspection coordination, and departmental reporting for a senior academic professional.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">Feb 2024 – Dec 2024</p>
+          <p class="timeline-role">Virtual Assistant — CRM &amp; Client Communication</p>
+          <p class="timeline-org">Insights For Sales</p>
+          <p class="timeline-desc">Managed CRM platform, client queries, virtual meeting scheduling, and structured reporting on activities and outcomes for a founder-led sales consultancy.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="side-block" style="margin-bottom: 2.5rem;">
+        <h3>Tools &amp; platforms</h3>
+        <div class="tools-grid">
+          <span class="tool-pill">Google Workspace</span>
+          <span class="tool-pill">MS Office</span>
+          <span class="tool-pill">Trello</span>
+          <span class="tool-pill">Notion</span>
+          <span class="tool-pill">Slack</span>
+          <span class="tool-pill">CRM Platforms</span>
+          <span class="tool-pill">LinkedIn Recruiter</span>
+          <span class="tool-pill">Google Calendar</span>
+          <span class="tool-pill">WhatsApp Business</span>
+          <span class="tool-pill">Canva</span>
+        </div>
+      </div>
+      <div class="side-block" style="margin-bottom: 2.5rem;">
+        <h3>Languages</h3>
+        <div class="lang-row">
+          <span class="lang-name">English</span>
+          <div class="lang-bar-bg"><div class="lang-bar" style="width: 90%;"></div></div>
+          <span class="lang-level">Professional</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name">Hindi</span>
+          <div class="lang-bar-bg"><div class="lang-bar" style="width: 100%;"></div></div>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-row">
+          <span class="lang-name">Gujarati</span>
+          <div class="lang-bar-bg"><div class="lang-bar" style="width: 100%;"></div></div>
+          <span class="lang-level">Native</span>
+        </div>
+      </div>
+      <div class="side-block">
+        <h3>Core strengths</h3>
+        <ul class="service-items" style="list-style:none;">
+          <li>High-volume email &amp; WhatsApp management</li>
+          <li>Confidentiality &amp; discretion</li>
+          <li>Independent, low-supervision work style</li>
+          <li>Cross-functional coordination</li>
+          <li>Documentation &amp; compliance</li>
+          <li>Business development support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Let's work<br><em>together.</em></h2>
+      <p>Whether you need a full-time EA, a reliable PA, or a skilled VA for ongoing remote support — I'd love to hear about your needs and explore how I can help.</p>
+      <div class="contact-info-item"><span>✉</span><span>hongalnidhi98@gmail.com</span></div>
+      <div class="contact-info-item"><span>📱</span><span>+91 7016696559</span></div>
+      <div class="contact-info-item"><span>📍</span><span>Gandhinagar, Gujarat, India</span></div>
+      <div class="contact-info-item"><span>🌐</span><span>Available remotely, worldwide</span></div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" id="f-name" placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" id="f-email" placeholder="jane@company.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Company / Organisation</label>
+        <input type="text" id="f-company" placeholder="Acme Inc.">
+      </div>
+      <div class="form-group">
+        <label>Service needed</label>
+        <select id="f-service">
+          <option value="">Select a service...</option>
+          <option>Executive Assistant (Full-time)</option>
+          <option>Personal Assistant</option>
+          <option>Virtual Assistant</option>
+          <option>CRM &amp; Client Communication</option>
+          <option>Other / Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell me about your needs</label>
+        <textarea id="f-msg" placeholder="Briefly describe what you're looking for — role type, hours, priorities, timeline..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="handleSubmit()">Send request →</button>
+      <div class="success-msg" id="success-msg">✓ &nbsp; Thank you! I'll be in touch within 24 hours.</div>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 Nidhi Hongal &nbsp;·&nbsp; Executive &amp; Virtual Assistant &nbsp;·&nbsp; Gandhinagar, India</footer>
+
+<script>
+function handleSubmit() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const service = document.getElementById('f-service').value;
+  const msg = document.getElementById('f-msg').value.trim();
+  if (!name || !email || !service || !msg) { alert('Please fill in all fields before submitting.'); return; }
+  const subject = encodeURIComponent('Service Request — ' + service);
+  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nCompany: ' + (document.getElementById('f-company').value || '—') + '\nService: ' + service + '\n\nMessage:\n' + msg);
+  window.location.href = 'mailto:hongalnidhi98@gmail.com?subject=' + subject + '&body=' + body;
+  document.getElementById('success-msg').style.display = 'block';
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
